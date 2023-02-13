@@ -246,29 +246,3 @@ tempConversionContainer.addEventListener("click", function (e) {
   e.preventDefault();
   app.convertTemperature(e);
 });
-
-// const icon = [
-//   "Clouds",
-//   "Clear",
-//   "Snow",
-//   "Rain",
-//   "Drizzle",
-//   "Thunderstorm",
-//   "Mist",
-//   "Shower rain",
-//   "Broken clouds",
-//   "Scattered clouds",
-//   "Few clouds",
-// ];
-
-// containerIcon.innerHTML = getIcon("Clear");
-// getIcon("Thunderstorm", containerIcon);
-// const weatherIcon = data.weather[0].main;
-
-// const htmlIcon = `<div class="d-flex col-3 justify-content-center">
-//       <img
-//         src="images/${weatherIcon}.svg"
-//         alt=""
-//         class="main-icon align-self-star"
-//       />
-//     </div>`;

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/91ebfada51.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <script defer src="src/script.js"></script>
+    <title>Weather-App</title>
+  </head>
+
+  <body>
+    <div class="container pt-4 border rounded">
+      <form class="d-flex mb-4" id="form-submit">
+        <input
+          type="text"
+          class="search-input form-control me-3"
+          placeholder="Search city"
+          aria-label="Search city"
+        />
+        <input
+          type="submit"
+          value="Search"
+          class="btn-search btn btn-outline-secondary"
+        />
+        <input
+          type="submit"
+          value="Current location"
+          class="btn-current-location btn btn-search btn-outline-secondary ms-3"
+        />
+      </form>
+      <div class="display-container">
+        <div class="d-flex flex-column">
+          <p class="date ps-3 m-0" id="display-hour">Monday 14:07</p>
+          <h1 class="header ps-3 mb-0" id="current-city">Vilnius, Lithuania</h1>
+        </div>
+        <div class="container-curr row align-items-center ps-3 pe-3 pb-3">
+          <div class="d-flex col-5 align-self-start">
+            <h3 class="h3 current-temperature">1°C</h3>
+            <ul class="temp-conversion mt-2">
+              <li class="temp celcius active m-0" data-fahrenheit>°C</li>
+              <li class="temp fahrenheit m-2" data-celcius>°F</li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <div class="row text-end prediction-row">
+              <p class="prediction-list">
+                Humidity:<span class="humidity">99%</span>
+              </p>
+              <p class="prediction-list">Wind:<span class="wind">3m/s</span></p>
+              <p class="prediction-list">
+                <span class="description">Clouds</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="icon-container d-flex col-3 justify-content-center">
+            <img
+              src="images/cloudy_with_heavy_snow.svg"
+              alt=""
+              class="main-icon align-self-star"
+            />
+          </div>
+        </div>
+        <h4 class="mb-2 header-4 text-capitalize">5-day forecast</h4>
+
+        <!-- Weekdays forecast container -->
+        <div class="weekdays-container row justify-content-around">
+          <div class="day-forecast col-2 p-0 text-center">
+            <p class="weekday">Mon</p>
+            <div class="icons">
+              <img src="#" alt="" class="fog-icon small-icon" />
+            </div>
+            <div class="day-night-temp">
+              <p class="day-temperature">2°</p>
+              <p class="night-temperature">-2°</p>
+            </div>
+          </div>
+
+          <div class="day-forecast col-2 text-center">
+            <p class="weekday">Tue</p>
+            <div class="icons">
+              <img src="#" alt="" class="small-icon" />
+            </div>
+            <div class="day-night-temp">
+              <p class="day-temperature">2°</p>
+              <p class="night-temperature">-2°</p>
+            </div>
+          </div>
+
+          <div class="day-forecast col-2 text-center">
+            <p class="weekday">Thu</p>
+            <div class="icons">
+              <img src="#" alt="" class="small-icon" />
+            </div>
+            <div class="day-night-temp">
+              <p class="day-temperature">2°</p>
+              <p class="night-temperature">-2°</p>
+            </div>
+          </div>
+
+          <div class="day-forecast col-2 text-center">
+            <p class="weekday">Fri</p>
+            <div class="icons">
+              <img src="#" alt="" class="small-icon" />
+            </div>
+            <div class="day-night-temp">
+              <p class="day-temperature">2°</p>
+              <p class="night-temperature">-2°</p>
+            </div>
+          </div>
+
+          <div class="day-forecast col-2 text-center">
+            <p class="weekday">Sat</p>
+            <div class="icons">
+              <img src="#" alt="" class="small-icon" />
+            </div>
+            <div class="day-night-temp">
+              <p class="day-temperature">2°</p>
+              <p class="night-temperature">-2°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

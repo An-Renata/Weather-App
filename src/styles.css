@@ -1,0 +1,159 @@
+:root {
+  --container-color-1: #76cad6;
+  --container-color-2: #c4e0e5;
+  --font-color: #495057;
+  --container-search-btn: rgb(196, 224, 229);
+  --icon-background: rgba(35, 61, 66, 0.275);
+}
+body {
+  /* 400, 500, 600, 700 */
+  font-family: "Rubik", sans-serif;
+  color: var(--font-color);
+  background-color: #f7f3f3a0;
+}
+
+.container {
+  max-width: 45rem;
+  background-color: azure;
+  background: linear-gradient(
+    to bottom right,
+    var(--container-color-1),
+    var(--container-color-2)
+  );
+  margin-top: 40px;
+}
+.display-container {
+  opacity: 0;
+  transition: all 0.4s ease-in;
+}
+
+/* Search field  */
+.search-input:focus {
+  box-shadow: none;
+  border-color: #fff;
+}
+
+.btn-search {
+  background-color: #fff;
+  border: 1.5px solid transparent;
+}
+.btn-search:hover {
+  background-color: var(--container-search-btn);
+  border: 1.5px solid #fff;
+}
+
+.btn-current-location {
+  background-color: #0c8599;
+  color: #fff;
+  border: 1.5px solid transparent;
+}
+.btn-current-location:hover {
+  background-color: #15aabf;
+  border: 1.5px solid #fff;
+}
+/* Curr temperature container */
+.date {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.current-temperature {
+  font-size: 3.5em;
+  font-weight: 600;
+}
+.celcius,
+.fahrenheit {
+  display: inline;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.prediction-row {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.prediction-list {
+  margin-bottom: 0.3rem;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+span {
+  font-size: 15px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.main-icon {
+  height: 9rem;
+  border-radius: 80px;
+}
+
+/* Weekdays forecast */
+.header-4 {
+  font-size: 12px;
+  font-weight: 400;
+}
+.small-icon {
+  height: 4rem;
+  background-color: var(--icon-background);
+  border-radius: 80px;
+  padding: 5px;
+}
+.weekday {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.day-night-temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day-temperature,
+.night-temperature {
+  font-weight: 400;
+}
+.night-temperature {
+  color: #8c8c8c;
+  margin-left: 0.5rem;
+}
+.day-temperature {
+  font-size: 20px;
+}
+.weekdays-container {
+  background-color: var(--container-search-btn);
+  padding: 10px;
+  border-radius: 30px 30px 0 0;
+}
+
+@media (max-width: 500px) {
+  .container-curr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  .container {
+    margin-top: 0;
+  }
+  .current-temperature {
+    text-align: center;
+  }
+  h1 {
+    text-align: center;
+  }
+  .prediction-list {
+    text-align: center;
+  }
+  .date {
+    text-align: center;
+  }
+  .temp.m-2 {
+    margin: 0 !important;
+  }
+} ;

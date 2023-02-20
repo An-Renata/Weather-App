@@ -28,7 +28,7 @@ const days = [
 ];
 
 let coords = {};
-let isCelcius = true;
+let isCelsius = true;
 
 navigator.geolocation.getCurrentPosition(function (pos) {
   return (coords = {
@@ -119,15 +119,15 @@ class App {
       });
 
     fiveDayForecast.forEach((day, i) => {
-      dayTemp[i].innerHTML = `${day.currTemp}°`;
+      dayTemp[i].innerHTML = day.currTemp === "0" ? "0°" : `${day.currTemp}°`;
+      nightTemp[i].innerHTML = day.minTemp === "0" ? "0°" : `${day.minTemp}°`;
       weekday[i].innerHTML = day.weekdayName;
-      nightTemp[i].innerHTML = `${day.minTemp}°`;
       this.getIcon(day.weather, icons[i], "small");
     });
   }
 
-  convertToFahrenheit(celcius) {
-    return Math.round(celcius * 1.8 + 32);
+  convertToFahrenheit(celsius) {
+    return Math.round(celsius * 1.8 + 32);
   }
 
   convertTemperature(e) {
@@ -138,14 +138,14 @@ class App {
     temps.forEach((el) => el.classList.remove("active"));
     clicked.classList.add("active");
 
-    if (clicked.classList.contains("fahrenheit") && isCelcius) {
+    if (clicked.classList.contains("fahrenheit") && isCelsius) {
       currentTemperature.innerHTML = `${this.convertToFahrenheit(
         this.currentTemp.toFixed()
       )}°F`;
-      isCelcius = false;
-    } else if (!isCelcius) {
+      isCelsius = false;
+    } else if (clicked.classList.contains("celsius") && !isCelsius) {
       currentTemperature.innerHTML = `${this.currentTemp.toFixed()}°C`;
-      isCelcius = true;
+      isCelsius = true;
     }
   }
 

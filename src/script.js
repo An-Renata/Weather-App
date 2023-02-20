@@ -87,9 +87,7 @@ class App {
       description.innerHTML =
         descriptionWeather[0].toUpperCase() + descriptionWeather.slice(1);
       currentCity.innerHTML = `${data.name}, ${countryName}`;
-      currentTemperature.innerHTML = `${Math.round(
-        this.currentTemp.toFixed()
-      )}°C`;
+      currentTemperature.innerHTML = `${Math.round(this.currentTemp)}°C`;
       wind.innerHTML = `${windSpeed.toFixed()}m/s`;
       humidity.innerHTML = `${humidityLevel.toFixed()}%`;
     } catch (err) {

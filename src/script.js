@@ -6,6 +6,8 @@ const currentCity = document.querySelector("#current-city");
 const currentTemperature = document.querySelector(".current-temperature");
 const tempConversionContainer = document.querySelector(".temp-conversion");
 const temps = document.querySelectorAll(".temp");
+const fahrenheitButton = document.querySelector(".fahrenheit");
+const celsiusButton = document.querySelector(".celsius");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
 const btnCurrent = document.querySelector(".btn-current-location");
@@ -15,7 +17,6 @@ const description = document.querySelector(".description");
 const weekday = document.querySelectorAll(".weekday");
 const dayTemp = document.querySelectorAll(".day-temperature");
 const nightTemp = document.querySelectorAll(".night-temperature");
-const mainContainerDisplay = document.querySelector(".display-container");
 
 const days = [
   "Sunday",
@@ -233,6 +234,8 @@ submitSearch.addEventListener("click", function (e) {
   const city = searchInput.value;
   app.renderForecastData(city);
   searchInput.value = "";
+  fahrenheitButton.classList.remove("active");
+  celsiusButton.classList.add("active");
 });
 
 btnCurrent.addEventListener("click", function (e) {

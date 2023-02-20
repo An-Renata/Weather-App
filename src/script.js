@@ -108,16 +108,9 @@ class App {
     const fiveDayForecast = forecastData
       .filter((_, i) => i % 8 === 0)
       .map((day) => {
-        const currTemp =
-          day.main.temp.toFixed() === "0"
-            ? "0°"
-            : `${day.main.temp.toFixed()}°`;
+        const currTemp = Math.round(day.main.temp);
         const weather = day.weather[0].main;
-        const minTemp =
-          day.main.temp_min.toFixed() === "0"
-            ? "0°"
-            : `${day.main.temp_min.toFixed()}°`;
-
+        const minTemp = Math.round(day.main.temp_min);
         const date = new Date(day.dt * 1000);
         const weekdayName = date.toLocaleString("default", {
           weekday: "short",
@@ -126,8 +119,8 @@ class App {
       });
 
     fiveDayForecast.forEach((day, i) => {
-      dayTemp[i].innerHTML = day.currTemp;
-      nightTemp[i].innerHTML = day.minTemp;
+      dayTemp[i].innerHTML = `${day.currTemp}°`;
+      nightTemp[i].innerHTML = `${day.minTemp}°`;
       weekday[i].innerHTML = day.weekdayName;
       this.getIcon(day.weather, icons[i], "small");
     });

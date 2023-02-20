@@ -247,6 +247,8 @@ submitSearch.addEventListener("click", function (e) {
 btnCurrent.addEventListener("click", function (e) {
   e.preventDefault();
   app.showCurrentLocation();
+  fahrenheitButton.classList.remove("active");
+  celsiusButton.classList.add("active");
 });
 
 tempConversionContainer.addEventListener("click", function (e) {

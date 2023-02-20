@@ -86,7 +86,6 @@ class App {
 
       description.innerHTML =
         descriptionWeather[0].toUpperCase() + descriptionWeather.slice(1);
-      mainContainerDisplay.style.opacity = 1;
       currentCity.innerHTML = `${data.name}, ${countryName}`;
       currentTemperature.innerHTML = `${Math.round(
         this.currentTemp.toFixed()
@@ -228,7 +227,6 @@ class App {
 }
 
 const app = new App();
-app.forecastFor5Days;
 
 submitSearch.addEventListener("click", function (e) {
   e.preventDefault();
@@ -245,4 +243,8 @@ btnCurrent.addEventListener("click", function (e) {
 tempConversionContainer.addEventListener("click", function (e) {
   e.preventDefault();
   app.convertTemperature(e);
+});
+
+window.addEventListener("load", () => {
+  app.showCurrentLocation();
 });

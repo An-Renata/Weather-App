@@ -63,7 +63,6 @@ class App {
 
       const { data } = response;
       const { country } = data.sys;
-      console.log(data);
       const citydata = await axios.get(
         `https://restcountries.com/v2/alpha/${country}`
       );
@@ -109,9 +108,16 @@ class App {
     const fiveDayForecast = forecastData
       .filter((_, i) => i % 8 === 0)
       .map((day) => {
-        const currTemp = day.main.temp.toFixed();
+        const currTemp =
+          day.main.temp.toFixed() === "0"
+            ? "0°"
+            : `${day.main.temp.toFixed()}°`;
         const weather = day.weather[0].main;
-        const minTemp = day.main.temp_min.toFixed();
+        const minTemp =
+          day.main.temp_min.toFixed() === "0"
+            ? "0°"
+            : `${day.main.temp_min.toFixed()}°`;
+
         const date = new Date(day.dt * 1000);
         const weekdayName = date.toLocaleString("default", {
           weekday: "short",
@@ -120,8 +126,8 @@ class App {
       });
 
     fiveDayForecast.forEach((day, i) => {
-      dayTemp[i].innerHTML = day.currTemp === "0" ? "0°" : `${day.currTemp}°`;
-      nightTemp[i].innerHTML = day.minTemp === "0" ? "0°" : `${day.minTemp}°`;
+      dayTemp[i].innerHTML = day.currTemp;
+      nightTemp[i].innerHTML = day.minTemp;
       weekday[i].innerHTML = day.weekdayName;
       this.getIcon(day.weather, icons[i], "small");
     });

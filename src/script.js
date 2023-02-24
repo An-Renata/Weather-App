@@ -45,7 +45,7 @@ class App {
 
   async showCurrentLocation() {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&appid=${API_KEY}`
     );
     const { data } = response;
     this.renderForecastData(data.name);

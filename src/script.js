@@ -17,7 +17,6 @@ const description = document.querySelector(".description");
 const weekday = document.querySelectorAll(".weekday");
 const dayTemp = document.querySelectorAll(".day-temperature");
 const nightTemp = document.querySelectorAll(".night-temperature");
-
 const days = [
   "Sunday",
   "Monday",
@@ -42,7 +41,6 @@ class App {
   constructor(currentTemp) {
     this.currentTemp = currentTemp;
   }
-
   async showCurrentLocation() {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&appid=${API_KEY}`
@@ -67,7 +65,6 @@ class App {
         `https://restcountries.com/v2/alpha/${country}`
       );
       const countryName = citydata.data.name;
-
       const unixTimestamp = data.dt;
       const date = new Date(unixTimestamp * 1000);
       const day = date.getDay();
@@ -100,24 +97,23 @@ class App {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
     );
     const { data } = response;
-
     const forecastData = data.list;
 
     const fiveDayForecast = forecastData
       .filter((_, i) => i % 8 === 0)
       .map((day) => {
-        const currTemp = Math.round(day.main.temp);
-        const weather = day.weather[0].main;
+        const maxTemp = Math.round(day.main.temp);
         const minTemp = Math.round(day.main.temp_min);
+        const weather = day.weather[0].main;
         const date = new Date(day.dt * 1000);
         const weekdayName = date.toLocaleString("default", {
           weekday: "short",
         });
-        return { currTemp, weekdayName, weather, minTemp };
+        return { maxTemp, weekdayName, weather, minTemp };
       });
 
     fiveDayForecast.forEach((day, i) => {
-      dayTemp[i].innerHTML = `${day.currTemp}°`;
+      dayTemp[i].innerHTML = `${day.maxTemp}°`;
       nightTemp[i].innerHTML = `${day.minTemp}°`;
       weekday[i].innerHTML = day.weekdayName;
       this.getIcon(day.weather, icons[i], "small");
